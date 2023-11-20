@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prova de Indução Matemática</title>
+</head>
+<style> 
+    #h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+        text-align: center;
+        background-color: blueviolet;
+        color: white;
+        margin: 190px;
+    }
+
+    #button {
+        width: auto;
+        height: auto;
+
+    }
+
+    #descricao {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+        text-align: center;
+        background-color: blueviolet;
+        color: white;
+        margin: 190px;
+        font-weight: 100;   
+        font-size: 30px;
+    }
+
+    #botao {
+        font-size: 40px;
+        border-radius: 7px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: block;
+        margin: 0 auto;
+        transition: background-color 0.3s, color 0.3s;
+        background-color: white;
+        color: blueviolet;
+    }
+
+    #botao:hover {
+        background-color: blueviolet;
+        color: white;
+        }
+</style>
+<body>
+    <h1 id="h1">Prova de Indução Matemática em Python</h1>
+
+    <div id="button">
+        <button id="botao" onclick="executarProva()">Executar Prova de Indução</button>
+    </div>
+
+    <script type="text/javascript">
+        function prova_inducao_matematica(n) {
+            if (n === 1) {
+                return 1;
+            } else {
+                return n + prova_inducao_matematica(n - 1);
+            }
+        }
+
+        function soma_primeiros_n_numeros(n) {
+            return (n * (n + 1)) / 2;
+        }
+
+        function executarProva() {
+            var n = parseInt(prompt("Digite um número inteiro positivo para a prova de indução:"));
+
+            if (n < 1 || isNaN(n)) {
+                alert("Por favor, insira um número inteiro positivo válido.");
+            } else {
+                var resultado_inducao = prova_inducao_matematica(n);
+                var resultado_formula = soma_primeiros_n_numeros(n);
+
+                if (resultado_inducao === resultado_formula) {
+                    alert("A soma dos primeiros " + n + " números inteiros é " + resultado_inducao + ".\nDe acordo com a fórmula, a soma é " + resultado_formula + ".\nA prova de indução matemática foi bem-sucedida!");
+                } else {
+                    alert("A prova de indução matemática falhou.");
+                }
+            }
+        }
+    </script>
+
+<p id="descricao">
+    Este programa em HTML demonstra a prova de indução matemática. Quando o usuário aperta o botão, ele tem a função de digitar um número para que a prova seja feita.
+    </p>
+</body>
+</html>
